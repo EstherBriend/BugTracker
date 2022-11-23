@@ -94,7 +94,7 @@ namespace BusinessLayer
         {
             using (BugTrackerContext context = new BugTrackerContext())
             {
-                return listToSearch.Where(bug => bug.name.Contains(searchedName)).ToList();
+                return listToSearch.Where(bug => bug.name.ToLower().Contains(searchedName.ToLower())).ToList();
             }
         }
 
@@ -102,7 +102,7 @@ namespace BusinessLayer
         {
             using (BugTrackerContext context = new BugTrackerContext())
             {
-                return listToSearch.Where(bug => bug.description.Contains(searchedDesc)).ToList();
+                return listToSearch.Where(bug => bug.description.ToLower().Contains(searchedDesc.ToLower())).ToList();
             }
         }
 
