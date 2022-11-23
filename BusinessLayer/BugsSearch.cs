@@ -31,14 +31,14 @@ namespace BusinessLayer
                 if (searchedCreatorId > 0){
                     resultList = SearchBugsByCreatorId(resultList, searchedCreatorId);
                 }
-                /*if(searchedCreationDate != DateTime.Now)
+                if(searchedCreationDate.Date != DateTime.Now.Date)
                 {
                     resultList = SearchBugsByCreationDate(resultList, searchedCreationDate);
                 }
-                if(searchedModificationDate != DateTime.Now)
+                if(searchedModificationDate.Date != DateTime.Now.Date)
                 {
                     resultList = SearchBugsByModificationDate(resultList, searchedModificationDate);
-                }*/
+                }
                 if (!searchedName.IsNullOrEmpty())
                 {
                     resultList = SearchBugsByName(resultList, searchedName);
@@ -83,11 +83,11 @@ namespace BusinessLayer
 
         private List <Bug> SearchBugsByCreationDate(List <Bug> listToSearch, DateTime searchedCreationDate)
         {
-            return listToSearch.Where(bug => bug.creationDate >= searchedCreationDate).ToList();
+            return listToSearch.Where(bug => DateTime.Compare(bug.creationDate,searchedCreationDate.Date) >= 0).ToList();
         }
         private List<Bug> SearchBugsByModificationDate(List<Bug> listToSearch, DateTime searchedModificationDate)
         {
-            return listToSearch.Where(bug => bug.lastUpdateDate >= searchedModificationDate).ToList();
+            return listToSearch.Where(bug => bug.creationDate != null && DateTime.Compare((DateTime)bug.creationDate.Date, searchedModificationDate.Date) >= 0).ToList();
         }
 
         private List<Bug> SearchBugsByName(List<Bug> listToSearch, string searchedName)

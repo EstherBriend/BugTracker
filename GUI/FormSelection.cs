@@ -16,6 +16,7 @@ namespace GUI
             comboPriority.DataSource = prioritySearchTool.RetrieveAllPriorityName();
             comboSeverity.DataSource = severitySearchTool.RetrieveAllSeverityName();
             comboCreator.DataSource = creatorSearchTool.RetrieveCreatorIdAndName();
+            btnSelect.Enabled = false;
             
 
         }
