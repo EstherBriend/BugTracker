@@ -9,13 +9,18 @@ namespace BusinessLayer
 {
     public class SeveritySearch
     {
+        /// <summary>
+        /// This function create the list for the combo Box Severity on the Selection Form
+        /// </summary>
         public List<String> RetrieveAllSeverityName()
         {
             using (BugTrackerContext context = new BugTrackerContext())
             {
                 List<String> severityNameList = new List<String>();
-                List<Priority> SeverityList = context.priority.ToList();
-                foreach (Priority severityObj in SeverityList)
+                severityNameList.Add("Any");
+
+                List<Severity> SeverityList = context.severity.ToList();
+                foreach (Severity severityObj in SeverityList)
                 {
                     severityNameList.Add(severityObj.name);
                 }
