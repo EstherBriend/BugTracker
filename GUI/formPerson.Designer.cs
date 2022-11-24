@@ -148,7 +148,7 @@
             this.txtId.Location = new System.Drawing.Point(169, 16);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(324, 27);
+            this.txtId.Size = new System.Drawing.Size(267, 27);
             this.txtId.TabIndex = 11;
             // 
             // txtFirstName
@@ -156,7 +156,7 @@
             this.txtFirstName.Location = new System.Drawing.Point(169, 56);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.ReadOnly = true;
-            this.txtFirstName.Size = new System.Drawing.Size(324, 27);
+            this.txtFirstName.Size = new System.Drawing.Size(267, 27);
             this.txtFirstName.TabIndex = 12;
             // 
             // txtLastName
@@ -164,7 +164,7 @@
             this.txtLastName.Location = new System.Drawing.Point(169, 96);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.ReadOnly = true;
-            this.txtLastName.Size = new System.Drawing.Size(324, 27);
+            this.txtLastName.Size = new System.Drawing.Size(267, 27);
             this.txtLastName.TabIndex = 13;
             // 
             // txtEmail
@@ -172,7 +172,7 @@
             this.txtEmail.Location = new System.Drawing.Point(169, 183);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(324, 27);
+            this.txtEmail.Size = new System.Drawing.Size(267, 27);
             this.txtEmail.TabIndex = 14;
             // 
             // txtYearOfExperience
@@ -180,7 +180,7 @@
             this.txtYearOfExperience.Location = new System.Drawing.Point(169, 331);
             this.txtYearOfExperience.Name = "txtYearOfExperience";
             this.txtYearOfExperience.ReadOnly = true;
-            this.txtYearOfExperience.Size = new System.Drawing.Size(324, 27);
+            this.txtYearOfExperience.Size = new System.Drawing.Size(267, 27);
             this.txtYearOfExperience.TabIndex = 15;
             // 
             // txtAddress
@@ -188,7 +188,7 @@
             this.txtAddress.Location = new System.Drawing.Point(169, 138);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.ReadOnly = true;
-            this.txtAddress.Size = new System.Drawing.Size(324, 27);
+            this.txtAddress.Size = new System.Drawing.Size(267, 27);
             this.txtAddress.TabIndex = 16;
             // 
             // txtHiredDate
@@ -196,7 +196,7 @@
             this.txtHiredDate.Location = new System.Drawing.Point(169, 428);
             this.txtHiredDate.Name = "txtHiredDate";
             this.txtHiredDate.ReadOnly = true;
-            this.txtHiredDate.Size = new System.Drawing.Size(324, 27);
+            this.txtHiredDate.Size = new System.Drawing.Size(267, 27);
             this.txtHiredDate.TabIndex = 17;
             // 
             // txtDateOfBirth
@@ -204,7 +204,7 @@
             this.txtDateOfBirth.Location = new System.Drawing.Point(169, 231);
             this.txtDateOfBirth.Name = "txtDateOfBirth";
             this.txtDateOfBirth.ReadOnly = true;
-            this.txtDateOfBirth.Size = new System.Drawing.Size(324, 27);
+            this.txtDateOfBirth.Size = new System.Drawing.Size(267, 27);
             this.txtDateOfBirth.TabIndex = 18;
             // 
             // txtJobTitle
@@ -212,7 +212,7 @@
             this.txtJobTitle.Location = new System.Drawing.Point(169, 285);
             this.txtJobTitle.Name = "txtJobTitle";
             this.txtJobTitle.ReadOnly = true;
-            this.txtJobTitle.Size = new System.Drawing.Size(324, 27);
+            this.txtJobTitle.Size = new System.Drawing.Size(267, 27);
             this.txtJobTitle.TabIndex = 19;
             // 
             // txtSalary
@@ -220,13 +220,13 @@
             this.txtSalary.Location = new System.Drawing.Point(169, 379);
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.ReadOnly = true;
-            this.txtSalary.Size = new System.Drawing.Size(324, 27);
+            this.txtSalary.Size = new System.Drawing.Size(267, 27);
             this.txtSalary.TabIndex = 20;
             // 
             // imgPerson
             // 
             this.imgPerson.Image = ((System.Drawing.Image)(resources.GetObject("imgPerson.Image")));
-            this.imgPerson.Location = new System.Drawing.Point(591, 16);
+            this.imgPerson.Location = new System.Drawing.Point(472, 16);
             this.imgPerson.Name = "imgPerson";
             this.imgPerson.Size = new System.Drawing.Size(125, 149);
             this.imgPerson.TabIndex = 21;
@@ -236,7 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 467);
+            this.ClientSize = new System.Drawing.Size(613, 467);
             this.Controls.Add(this.imgPerson);
             this.Controls.Add(this.txtSalary);
             this.Controls.Add(this.txtJobTitle);

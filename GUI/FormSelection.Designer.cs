@@ -200,6 +200,7 @@
             this.dgvBugsList.RowTemplate.Height = 29;
             this.dgvBugsList.Size = new System.Drawing.Size(910, 211);
             this.dgvBugsList.TabIndex = 20;
+            this.dgvBugsList.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvBugsList_RowHeaderMouseClick);
             // 
             // btnSearch
             // 
@@ -245,6 +246,7 @@
             this.btnSelect.TabIndex = 43;
             this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = false;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // btnReset
             // 
@@ -314,7 +316,7 @@
             this.Controls.Add(this.lblBugId);
             this.Controls.Add(this.dgvBugsList);
             this.Name = "FormSelection";
-            this.Text = "Form1";
+            this.Text = "Bug Selection";
             ((System.ComponentModel.ISupportInitialize)(this.dgvBugsList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

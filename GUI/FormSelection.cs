@@ -1,5 +1,6 @@
 using BusinessLayer;
 using Microsoft.IdentityModel.Tokens;
+using System.DirectoryServices;
 
 namespace GUI
 {
@@ -89,7 +90,33 @@ namespace GUI
             radSolvedNo.Checked = false;
             radSolvedYes.Checked = false;
             dgvBugsList.DataSource = bugSearchTool.RetrieveAllBugs();
+            btnSelect.Enabled = false;
         }
 
+        //Open the FormPerson with the creator informations
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            int creatorId = 0;
+            if (dgvBugsList.SelectedRows.Count > 1)
+            {
+                MessageBox.Show("Only one row can be selected at the time!");
+            }
+            else
+            {
+                foreach(DataGridViewRow row in dgvBugsList.SelectedRows)
+                {
+                    creatorId = Int32.Parse(row.Cells["CreatorId"].Value.ToString());
+                }
+                formPerson creatorInfo = new formPerson(creatorId);
+                creatorInfo.Show();
+                btnSelect.Enabled=false;
+            }
+        }
+
+        private void dgvBugsList_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            btnSelect.Enabled = true;
+
+        }
     }
 }
