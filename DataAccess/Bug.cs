@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,9 @@ namespace DataAccess
 
 
         // Navigation property:
-        public Person creator { get; set; }
-        public Priority priority { get; set; }
-        public Severity severity { get; set; }
+        [Browsable(false)] public Person creator { get; set; } //[Browsable(false)] -> make the variable non accessible in the data grid view
+        [Browsable(false)] public Priority priority { get; set; }
+        [Browsable(false)] public Severity severity { get; set; }
         public List<Message> messages { get; set; }
         public List<Logs> logs { get; set; }
 

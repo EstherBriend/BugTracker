@@ -14,6 +14,7 @@ namespace GUI
         {
             InitializeComponent();
             dgvBugsList.DataSource = bugSearchTool.RetrieveAllBugs();
+            //dgvBugsList.Columns["creator"].Visible = false;
             comboPriority.DataSource = prioritySearchTool.RetrievAllPrioritiesPlusAny();
             comboSeverity.DataSource = severitySearchTool.RetrievAllSeveritiesPlusAny();
             comboCreator.DataSource = creatorSearchTool.RetrieveCreatorIdAndName();
