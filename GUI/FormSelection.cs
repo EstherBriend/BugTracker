@@ -81,16 +81,7 @@ namespace GUI
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            comboPriority.SelectedIndex = 0;
-            comboSeverity.SelectedIndex = 0;
-            txtBugId.Text = "";
-            comboCreator.SelectedIndex = 0;
-            txtDescription.Text = "";
-            txtName.Text = "";
-            radSolvedNo.Checked = false;
-            radSolvedYes.Checked = false;
-            dgvBugsList.DataSource = bugSearchTool.RetrieveAllBugs();
-            btnSelect.Enabled = false;
+            reset();
         }
 
         //Open the FormPerson with the creator informations
@@ -118,5 +109,28 @@ namespace GUI
             btnSelect.Enabled = true;
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            FormAddBugs newFormAddBugs = new FormAddBugs();
+            newFormAddBugs.selectionForm = this;
+            newFormAddBugs.Show();
+            this.Hide();
+        }
+
+        public void reset()
+        {
+            comboPriority.SelectedIndex = 0;
+            comboSeverity.SelectedIndex = 0;
+            txtBugId.Text = "";
+            comboCreator.SelectedIndex = 0;
+            txtDescription.Text = "";
+            txtName.Text = "";
+            radSolvedNo.Checked = false;
+            radSolvedYes.Checked = false;
+            dgvBugsList.DataSource = bugSearchTool.RetrieveAllBugs();
+            btnSelect.Enabled = false;
+        }
+
     }
 }

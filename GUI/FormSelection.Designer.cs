@@ -54,41 +54,43 @@
             this.lblListBugs = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboCreator = new System.Windows.Forms.ComboBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.lblBugTracker = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBugsList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // timeModificationDate
             // 
-            this.timeModificationDate.Location = new System.Drawing.Point(739, 53);
+            this.timeModificationDate.Location = new System.Drawing.Point(692, 107);
             this.timeModificationDate.Name = "timeModificationDate";
             this.timeModificationDate.Size = new System.Drawing.Size(244, 27);
             this.timeModificationDate.TabIndex = 39;
             // 
             // timeCreationDate
             // 
-            this.timeCreationDate.Location = new System.Drawing.Point(216, 53);
+            this.timeCreationDate.Location = new System.Drawing.Point(169, 107);
             this.timeCreationDate.Name = "timeCreationDate";
             this.timeCreationDate.Size = new System.Drawing.Size(246, 27);
             this.timeCreationDate.TabIndex = 38;
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(216, 150);
+            this.txtDescription.Location = new System.Drawing.Point(169, 204);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(246, 27);
             this.txtDescription.TabIndex = 37;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(737, 150);
+            this.txtName.Location = new System.Drawing.Point(692, 204);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(244, 27);
             this.txtName.TabIndex = 36;
             // 
             // txtBugId
             // 
-            this.txtBugId.Location = new System.Drawing.Point(216, 11);
+            this.txtBugId.Location = new System.Drawing.Point(169, 65);
             this.txtBugId.Name = "txtBugId";
             this.txtBugId.Size = new System.Drawing.Size(246, 27);
             this.txtBugId.TabIndex = 34;
@@ -96,7 +98,7 @@
             // comboSeverity
             // 
             this.comboSeverity.FormattingEnabled = true;
-            this.comboSeverity.Location = new System.Drawing.Point(737, 105);
+            this.comboSeverity.Location = new System.Drawing.Point(692, 156);
             this.comboSeverity.Name = "comboSeverity";
             this.comboSeverity.Size = new System.Drawing.Size(244, 28);
             this.comboSeverity.TabIndex = 33;
@@ -104,7 +106,7 @@
             // comboPriority
             // 
             this.comboPriority.FormattingEnabled = true;
-            this.comboPriority.Location = new System.Drawing.Point(216, 105);
+            this.comboPriority.Location = new System.Drawing.Point(169, 159);
             this.comboPriority.Name = "comboPriority";
             this.comboPriority.Size = new System.Drawing.Size(246, 28);
             this.comboPriority.TabIndex = 32;
@@ -112,7 +114,7 @@
             // lblSeverity
             // 
             this.lblSeverity.AutoSize = true;
-            this.lblSeverity.Location = new System.Drawing.Point(576, 113);
+            this.lblSeverity.Location = new System.Drawing.Point(529, 159);
             this.lblSeverity.Name = "lblSeverity";
             this.lblSeverity.Size = new System.Drawing.Size(61, 20);
             this.lblSeverity.TabIndex = 29;
@@ -121,7 +123,7 @@
             // lblSolved
             // 
             this.lblSolved.AutoSize = true;
-            this.lblSolved.Location = new System.Drawing.Point(87, 201);
+            this.lblSolved.Location = new System.Drawing.Point(24, 251);
             this.lblSolved.Name = "lblSolved";
             this.lblSolved.Size = new System.Drawing.Size(54, 20);
             this.lblSolved.TabIndex = 28;
@@ -130,7 +132,7 @@
             // lblPriority
             // 
             this.lblPriority.AutoSize = true;
-            this.lblPriority.Location = new System.Drawing.Point(87, 113);
+            this.lblPriority.Location = new System.Drawing.Point(24, 159);
             this.lblPriority.Name = "lblPriority";
             this.lblPriority.Size = new System.Drawing.Size(56, 20);
             this.lblPriority.TabIndex = 27;
@@ -139,7 +141,7 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(87, 157);
+            this.lblDescription.Location = new System.Drawing.Point(24, 204);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(85, 20);
             this.lblDescription.TabIndex = 26;
@@ -148,7 +150,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(576, 150);
+            this.lblName.Location = new System.Drawing.Point(529, 204);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(49, 20);
             this.lblName.TabIndex = 25;
@@ -157,7 +159,7 @@
             // lblCreator
             // 
             this.lblCreator.AutoSize = true;
-            this.lblCreator.Location = new System.Drawing.Point(576, 13);
+            this.lblCreator.Location = new System.Drawing.Point(529, 65);
             this.lblCreator.Name = "lblCreator";
             this.lblCreator.Size = new System.Drawing.Size(58, 20);
             this.lblCreator.TabIndex = 24;
@@ -166,7 +168,7 @@
             // lblLastEditDate
             // 
             this.lblLastEditDate.AutoSize = true;
-            this.lblLastEditDate.Location = new System.Drawing.Point(576, 53);
+            this.lblLastEditDate.Location = new System.Drawing.Point(529, 107);
             this.lblLastEditDate.Name = "lblLastEditDate";
             this.lblLastEditDate.Size = new System.Drawing.Size(101, 40);
             this.lblLastEditDate.TabIndex = 23;
@@ -175,7 +177,7 @@
             // lblCreationDate
             // 
             this.lblCreationDate.AutoSize = true;
-            this.lblCreationDate.Location = new System.Drawing.Point(85, 53);
+            this.lblCreationDate.Location = new System.Drawing.Point(24, 107);
             this.lblCreationDate.Name = "lblCreationDate";
             this.lblCreationDate.Size = new System.Drawing.Size(101, 40);
             this.lblCreationDate.TabIndex = 22;
@@ -184,7 +186,7 @@
             // lblBugId
             // 
             this.lblBugId.AutoSize = true;
-            this.lblBugId.Location = new System.Drawing.Point(85, 13);
+            this.lblBugId.Location = new System.Drawing.Point(24, 65);
             this.lblBugId.Name = "lblBugId";
             this.lblBugId.Size = new System.Drawing.Size(52, 20);
             this.lblBugId.TabIndex = 21;
@@ -193,12 +195,12 @@
             // dgvBugsList
             // 
             this.dgvBugsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBugsList.Location = new System.Drawing.Point(71, 291);
+            this.dgvBugsList.Location = new System.Drawing.Point(24, 358);
             this.dgvBugsList.Name = "dgvBugsList";
             this.dgvBugsList.ReadOnly = true;
             this.dgvBugsList.RowHeadersWidth = 51;
             this.dgvBugsList.RowTemplate.Height = 29;
-            this.dgvBugsList.Size = new System.Drawing.Size(910, 211);
+            this.dgvBugsList.Size = new System.Drawing.Size(920, 198);
             this.dgvBugsList.TabIndex = 20;
             this.dgvBugsList.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvBugsList_RowHeaderMouseClick);
             // 
@@ -206,7 +208,7 @@
             // 
             this.btnSearch.BackColor = System.Drawing.Color.Lime;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSearch.Location = new System.Drawing.Point(687, 201);
+            this.btnSearch.Location = new System.Drawing.Point(500, 292);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(144, 50);
             this.btnSearch.TabIndex = 40;
@@ -217,7 +219,7 @@
             // radSolvedYes
             // 
             this.radSolvedYes.AutoSize = true;
-            this.radSolvedYes.Location = new System.Drawing.Point(254, 197);
+            this.radSolvedYes.Location = new System.Drawing.Point(207, 251);
             this.radSolvedYes.Name = "radSolvedYes";
             this.radSolvedYes.Size = new System.Drawing.Size(51, 24);
             this.radSolvedYes.TabIndex = 41;
@@ -228,7 +230,7 @@
             // radSolvedNo
             // 
             this.radSolvedNo.AutoSize = true;
-            this.radSolvedNo.Location = new System.Drawing.Point(350, 199);
+            this.radSolvedNo.Location = new System.Drawing.Point(303, 253);
             this.radSolvedNo.Name = "radSolvedNo";
             this.radSolvedNo.Size = new System.Drawing.Size(50, 24);
             this.radSolvedNo.TabIndex = 42;
@@ -238,9 +240,9 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btnSelect.BackColor = System.Drawing.Color.Orange;
             this.btnSelect.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSelect.Location = new System.Drawing.Point(837, 201);
+            this.btnSelect.Location = new System.Drawing.Point(650, 292);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(144, 50);
             this.btnSelect.TabIndex = 43;
@@ -251,7 +253,7 @@
             // btnReset
             // 
             this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
-            this.btnReset.Location = new System.Drawing.Point(627, 201);
+            this.btnReset.Location = new System.Drawing.Point(444, 292);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(50, 50);
             this.btnReset.TabIndex = 44;
@@ -262,7 +264,7 @@
             // 
             this.lblListBugs.AutoSize = true;
             this.lblListBugs.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblListBugs.Location = new System.Drawing.Point(135, 247);
+            this.lblListBugs.Location = new System.Drawing.Point(98, 308);
             this.lblListBugs.Name = "lblListBugs";
             this.lblListBugs.Size = new System.Drawing.Size(170, 38);
             this.lblListBugs.TabIndex = 46;
@@ -271,7 +273,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(71, 231);
+            this.pictureBox1.Location = new System.Drawing.Point(24, 292);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(60, 54);
             this.pictureBox1.TabIndex = 47;
@@ -280,16 +282,40 @@
             // comboCreator
             // 
             this.comboCreator.FormattingEnabled = true;
-            this.comboCreator.Location = new System.Drawing.Point(739, 14);
+            this.comboCreator.Location = new System.Drawing.Point(692, 68);
             this.comboCreator.Name = "comboCreator";
             this.comboCreator.Size = new System.Drawing.Size(244, 28);
             this.comboCreator.TabIndex = 48;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.Location = new System.Drawing.Point(800, 292);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(144, 50);
+            this.btnAdd.TabIndex = 49;
+            this.btnAdd.Text = "Add bug";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // lblBugTracker
+            // 
+            this.lblBugTracker.AutoSize = true;
+            this.lblBugTracker.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBugTracker.Location = new System.Drawing.Point(378, 9);
+            this.lblBugTracker.Name = "lblBugTracker";
+            this.lblBugTracker.Size = new System.Drawing.Size(209, 46);
+            this.lblBugTracker.TabIndex = 71;
+            this.lblBugTracker.Text = "Bug Tracker";
             // 
             // FormSelection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1026, 514);
+            this.ClientSize = new System.Drawing.Size(959, 568);
+            this.Controls.Add(this.lblBugTracker);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.comboCreator);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblListBugs);
@@ -351,5 +377,7 @@
         private Label lblListBugs;
         private PictureBox pictureBox1;
         private ComboBox comboCreator;
+        private Button btnAdd;
+        private Label lblBugTracker;
     }
 }
