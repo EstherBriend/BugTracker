@@ -9,15 +9,12 @@ namespace BusinessLayer
 {
     public class SeveritySearch
     {
-        /// <summary>
-        /// This function create the list for the combo Box Severity on the Selection Form
-        /// </summary>
+
         public List<String> RetrieveAllSeverityName()
         {
             using (BugTrackerContext context = new BugTrackerContext())
             {
                 List<String> severityNameList = new List<String>();
-                severityNameList.Add("Any");
 
                 List<Severity> SeverityList = context.severity.ToList();
                 foreach (Severity severityObj in SeverityList)
@@ -26,6 +23,18 @@ namespace BusinessLayer
                 }
                 return severityNameList;
             }
+        }
+
+        /// <summary>
+        /// This function create the list for the combo Box Severity on the Selection Form
+        /// </summary>
+        public List<String> RetrievAllSeveritiesPlusAny()
+        {
+            List<String> severityNameList = new List<String>();
+            severityNameList.Add("Any");
+            severityNameList.AddRange(RetrieveAllSeverityName());
+            return severityNameList;
+
         }
     }
 }
