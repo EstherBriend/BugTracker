@@ -66,7 +66,6 @@
             // 
             // comboSeverity
             // 
-            this.comboSeverity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboSeverity.FormattingEnabled = true;
             this.comboSeverity.Location = new System.Drawing.Point(146, 258);
             this.comboSeverity.Name = "comboSeverity";
@@ -76,7 +75,6 @@
             // 
             // comboPriority
             // 
-            this.comboPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPriority.FormattingEnabled = true;
             this.comboPriority.Location = new System.Drawing.Point(146, 208);
             this.comboPriority.Name = "comboPriority";

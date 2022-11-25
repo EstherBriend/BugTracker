@@ -48,9 +48,9 @@ namespace GUI
             btnAddHasBeenClicked = true;
 
             // ------------------------------------ Verify that the mandatory fields have been fullfield -----------------------------------------
-            if(txtCreatorId.Text.IsNullOrEmpty() || txtName.Text.IsNullOrEmpty() || comboSeverity.SelectedIndex == -1 || comboPriority.SelectedIndex == -1)
+            if (txtCreatorId.Text.IsNullOrEmpty() || txtName.Text.IsNullOrEmpty() || comboSeverity.SelectedIndex == -1 || comboPriority.SelectedIndex == -1)
             {
-                changeMandatoryFieldsLabeDependingOnTheFulfill();
+                changeMandatoryFieldsLabelAndBtnAddDependingOnTheFulfill();
                 if (txtCreatorId.Text.IsNullOrEmpty())
                 {
                     txtCreatorId.BackColor = Color.LightPink;
@@ -59,14 +59,14 @@ namespace GUI
                 {
                     txtName.BackColor = Color.LightPink;
                 }
-                if(comboSeverity.SelectedIndex == -1)
+                if (comboSeverity.SelectedIndex == -1)
                 {
-                   comboSeverity.BackColor = Color.LightPink;
+                    comboSeverity.BackColor = Color.LightPink;
                 }
-                if(comboPriority.SelectedIndex == -1)
+                if (comboPriority.SelectedIndex == -1)
                 {
                     comboPriority.BackColor = Color.LightPink;
-                }       
+                }
             }
             else
             {
@@ -75,27 +75,31 @@ namespace GUI
                 try
                 {
                     creatorIdToAdd = Int32.Parse(txtCreatorId.Text);
-
-                    // ------------------------------------ Verify that the creator Id exist in the database -------------------------------------
-                    if (personSearchTool.SearchById(creatorIdToAdd) == null)
-                    {
-                        MessageBox.Show("The ID you enter does not exist. Please, enter a new Id.", "ID NOT FOUND", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    // ------------------------------------ Send the form informations to the Business layer ------------------------------------
-                    string nameToAdd = txtName.Text;
-                    string descToAdd = txtDescription.Text;
-                    int priorityIdToAdd = comboPriority.SelectedIndex + 1;
-                    int severityIdToAdd = comboSeverity.SelectedIndex +1;
-                    bugsAddTool.addBugInDb(creatorIdToAdd, nameToAdd, descToAdd, priorityIdToAdd, severityIdToAdd);
-                    MessageBox.Show("New bug added", "NEW BUG", MessageBoxButtons.OK);
-
-
-
                 }
                 catch
                 {
                     MessageBox.Show("The ID you enter is invalid.\nPlease, enter an ID composed of only numbers.", "INVALID ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                }
+
+                // ------------------------------------ Verify that the creator Id exist in the database -------------------------------------
+                if (creatorIdToAdd != 0)
+                {
+                    if (personSearchTool.SearchById(creatorIdToAdd) == null)
+                    {
+                        MessageBox.Show("The ID you enter does not exist. Please, enter a new Id.", "ID NOT FOUND", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    // ------------------------------------ Send the form informations to the Business layer ------------------------------------
+                    else
+                    {
+                        string nameToAdd = txtName.Text;
+                        string descToAdd = txtDescription.Text;
+                        int priorityIdToAdd = comboPriority.SelectedIndex + 1;
+                        int severityIdToAdd = comboSeverity.SelectedIndex + 1;
+                        bugsAddTool.addBugInDb(creatorIdToAdd, nameToAdd, descToAdd, priorityIdToAdd, severityIdToAdd);
+                        MessageBox.Show("New bug added", "NEW BUG", MessageBoxButtons.OK);
+
+                    }
                 }
 
             }
@@ -119,38 +123,40 @@ namespace GUI
         private void txtCreatorId_TextChanged(object sender, EventArgs e)
         {
             txtCreatorId.BackColor = SystemColors.Window;
-            changeMandatoryFieldsLabeDependingOnTheFulfill();
+            changeMandatoryFieldsLabelAndBtnAddDependingOnTheFulfill();
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             txtName.BackColor = SystemColors.Window;
-            changeMandatoryFieldsLabeDependingOnTheFulfill();
+            changeMandatoryFieldsLabelAndBtnAddDependingOnTheFulfill();
         }
 
         private void comboPriority_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboPriority.BackColor = SystemColors.Window;
-            changeMandatoryFieldsLabeDependingOnTheFulfill();
+            changeMandatoryFieldsLabelAndBtnAddDependingOnTheFulfill();
         }
 
         private void comboSeverity_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboSeverity.BackColor = SystemColors.Window;
-            changeMandatoryFieldsLabeDependingOnTheFulfill();
+            changeMandatoryFieldsLabelAndBtnAddDependingOnTheFulfill();
         }
 
-        private void changeMandatoryFieldsLabeDependingOnTheFulfill()
+        private void changeMandatoryFieldsLabelAndBtnAddDependingOnTheFulfill()
         {
             if ((txtCreatorId.Text.IsNullOrEmpty() || txtName.Text.IsNullOrEmpty() || comboSeverity.SelectedIndex == -1 || comboPriority.SelectedIndex == -1) && btnAddHasBeenClicked)
             {
                 lblInfoMandatoryFields.ForeColor = Color.Red;
                 lblInfoMandatoryFields.Font = new Font(lblInfoMandatoryFields.Font, FontStyle.Bold | FontStyle.Italic);
+                btnAdd.Enabled = false;
             }
             else
             {
                 lblInfoMandatoryFields.ForeColor = Color.Black;
                 lblInfoMandatoryFields.Font = new Font(lblInfoMandatoryFields.Font, FontStyle.Italic);
+                btnAdd.Enabled = true;
             }
         }
     }
