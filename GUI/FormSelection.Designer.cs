@@ -97,6 +97,7 @@
             // 
             // comboSeverity
             // 
+            this.comboSeverity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboSeverity.FormattingEnabled = true;
             this.comboSeverity.Location = new System.Drawing.Point(692, 156);
             this.comboSeverity.Name = "comboSeverity";
@@ -105,6 +106,7 @@
             // 
             // comboPriority
             // 
+            this.comboPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPriority.FormattingEnabled = true;
             this.comboPriority.Location = new System.Drawing.Point(169, 159);
             this.comboPriority.Name = "comboPriority";
@@ -305,7 +307,7 @@
             this.lblBugTracker.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblBugTracker.Location = new System.Drawing.Point(378, 9);
             this.lblBugTracker.Name = "lblBugTracker";
-            this.lblBugTracker.Size = new System.Drawing.Size(209, 46);
+            this.lblBugTracker.Size = new System.Drawing.Size(203, 45);
             this.lblBugTracker.TabIndex = 71;
             this.lblBugTracker.Text = "Bug Tracker";
             // 

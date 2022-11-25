@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddBugs));
-            this.comboCreator = new System.Windows.Forms.ComboBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.comboSeverity = new System.Windows.Forms.ComboBox();
@@ -40,21 +39,14 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblCreator = new System.Windows.Forms.Label();
             this.imgMediumBug = new System.Windows.Forms.PictureBox();
-            this.lblInfoMAndatoryFields = new System.Windows.Forms.Label();
+            this.lblInfoMandatoryFields = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.lblAddBugs = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
+            this.txtCreatorId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgMediumBug)).BeginInit();
             this.SuspendLayout();
-            // 
-            // comboCreator
-            // 
-            this.comboCreator.FormattingEnabled = true;
-            this.comboCreator.Location = new System.Drawing.Point(146, 157);
-            this.comboCreator.Name = "comboCreator";
-            this.comboCreator.Size = new System.Drawing.Size(244, 28);
-            this.comboCreator.TabIndex = 64;
             // 
             // txtDescription
             // 
@@ -66,26 +58,31 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(146, 102);
+            this.txtName.Location = new System.Drawing.Point(146, 155);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(244, 27);
             this.txtName.TabIndex = 60;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // comboSeverity
             // 
+            this.comboSeverity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboSeverity.FormattingEnabled = true;
             this.comboSeverity.Location = new System.Drawing.Point(146, 258);
             this.comboSeverity.Name = "comboSeverity";
             this.comboSeverity.Size = new System.Drawing.Size(246, 28);
             this.comboSeverity.TabIndex = 58;
+            this.comboSeverity.SelectedIndexChanged += new System.EventHandler(this.comboSeverity_SelectedIndexChanged);
             // 
             // comboPriority
             // 
+            this.comboPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPriority.FormattingEnabled = true;
             this.comboPriority.Location = new System.Drawing.Point(146, 208);
             this.comboPriority.Name = "comboPriority";
             this.comboPriority.Size = new System.Drawing.Size(246, 28);
             this.comboPriority.TabIndex = 57;
+            this.comboPriority.SelectedIndexChanged += new System.EventHandler(this.comboPriority_SelectedIndexChanged);
             // 
             // lblSeverity
             // 
@@ -117,20 +114,20 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(25, 102);
+            this.lblName.Location = new System.Drawing.Point(25, 155);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(59, 20);
+            this.lblName.Size = new System.Drawing.Size(89, 20);
             this.lblName.TabIndex = 53;
-            this.lblName.Text = "Name *";
+            this.lblName.Text = "Bug Name *";
             // 
             // lblCreator
             // 
             this.lblCreator.AutoSize = true;
-            this.lblCreator.Location = new System.Drawing.Point(25, 157);
+            this.lblCreator.Location = new System.Drawing.Point(25, 111);
             this.lblCreator.Name = "lblCreator";
-            this.lblCreator.Size = new System.Drawing.Size(68, 20);
+            this.lblCreator.Size = new System.Drawing.Size(85, 20);
             this.lblCreator.TabIndex = 52;
-            this.lblCreator.Text = "Creator *";
+            this.lblCreator.Text = "Creator Id *";
             // 
             // imgMediumBug
             // 
@@ -141,15 +138,15 @@
             this.imgMediumBug.TabIndex = 65;
             this.imgMediumBug.TabStop = false;
             // 
-            // lblInfoMAndatoryFields
+            // lblInfoMandatoryFields
             // 
-            this.lblInfoMAndatoryFields.AutoSize = true;
-            this.lblInfoMAndatoryFields.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.lblInfoMAndatoryFields.Location = new System.Drawing.Point(25, 57);
-            this.lblInfoMAndatoryFields.Name = "lblInfoMAndatoryFields";
-            this.lblInfoMAndatoryFields.Size = new System.Drawing.Size(265, 20);
-            this.lblInfoMAndatoryFields.TabIndex = 66;
-            this.lblInfoMAndatoryFields.Text = "The fields with an asterix are mandatory";
+            this.lblInfoMandatoryFields.AutoSize = true;
+            this.lblInfoMandatoryFields.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.lblInfoMandatoryFields.Location = new System.Drawing.Point(25, 57);
+            this.lblInfoMandatoryFields.Name = "lblInfoMandatoryFields";
+            this.lblInfoMandatoryFields.Size = new System.Drawing.Size(265, 20);
+            this.lblInfoMandatoryFields.TabIndex = 66;
+            this.lblInfoMandatoryFields.Text = "The fields with an asterix are mandatory";
             // 
             // btnAdd
             // 
@@ -161,6 +158,7 @@
             this.btnAdd.TabIndex = 67;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnReset
             // 
@@ -170,6 +168,7 @@
             this.btnReset.Size = new System.Drawing.Size(50, 50);
             this.btnReset.TabIndex = 68;
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // lblAddBugs
             // 
@@ -191,18 +190,26 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // txtCreatorId
+            // 
+            this.txtCreatorId.Location = new System.Drawing.Point(146, 111);
+            this.txtCreatorId.Name = "txtCreatorId";
+            this.txtCreatorId.Size = new System.Drawing.Size(244, 27);
+            this.txtCreatorId.TabIndex = 71;
+            this.txtCreatorId.TextChanged += new System.EventHandler(this.txtCreatorId_TextChanged);
+            // 
             // FormAddBugs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 524);
+            this.Controls.Add(this.txtCreatorId);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblAddBugs);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lblInfoMAndatoryFields);
+            this.Controls.Add(this.lblInfoMandatoryFields);
             this.Controls.Add(this.imgMediumBug);
-            this.Controls.Add(this.comboCreator);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.comboSeverity);
@@ -221,8 +228,6 @@
         }
 
         #endregion
-
-        private ComboBox comboCreator;
         private TextBox txtDescription;
         private TextBox txtName;
         private ComboBox comboSeverity;
@@ -238,5 +243,7 @@
         private Button btnReset;
         private Label lblAddBugs;
         private Button btnBack;
+        private TextBox txtCreatorId;
+        private Label lblInfoMandatoryFields;
     }
 }

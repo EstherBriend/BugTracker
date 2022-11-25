@@ -9,13 +9,13 @@ namespace GUI
         BugsSearch bugSearchTool = new BugsSearch();
         PrioritySearch prioritySearchTool = new PrioritySearch();
         SeveritySearch severitySearchTool = new SeveritySearch();
-        CreatorSearch creatorSearchTool = new BusinessLayer.CreatorSearch();
+        CreatorSearch creatorSearchTool = new CreatorSearch();
         public FormSelection()
         {
             InitializeComponent();
             dgvBugsList.DataSource = bugSearchTool.RetrieveAllBugs();
-            comboPriority.DataSource = prioritySearchTool.RetrieveAllPriorityName();
-            comboSeverity.DataSource = severitySearchTool.RetrieveAllSeverityName();
+            comboPriority.DataSource = prioritySearchTool.RetrievAllPrioritiesPlusAny();
+            comboSeverity.DataSource = severitySearchTool.RetrievAllSeveritiesPlusAny();
             comboCreator.DataSource = creatorSearchTool.RetrieveCreatorIdAndName();
             btnSelect.Enabled = false;
             
@@ -24,6 +24,7 @@ namespace GUI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+
             int searchedId = -1;
             string searchedName = "";
             string searchedDesc = "";
@@ -90,7 +91,7 @@ namespace GUI
             int creatorId = 0;
             if (dgvBugsList.SelectedRows.Count > 1)
             {
-                MessageBox.Show("Only one row can be selected at the time!");
+                MessageBox.Show("Please, select only one row at the time", "TOO MANY ROWS SELECTED", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -130,6 +131,7 @@ namespace GUI
             radSolvedYes.Checked = false;
             dgvBugsList.DataSource = bugSearchTool.RetrieveAllBugs();
             btnSelect.Enabled = false;
+            comboCreator.DataSource = creatorSearchTool.RetrieveCreatorIdAndName();
         }
 
     }

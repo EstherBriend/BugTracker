@@ -22,10 +22,16 @@ namespace BusinessLayer
             {
                 searchedPerson = context.person.Find(personId);
             }
-            string[] personData = { searchedPerson.firstName, searchedPerson.lastName, searchedPerson.address, searchedPerson.email, searchedPerson.dateOfBirth.ToShortDateString(), searchedPerson.jobTitle, searchedPerson.yearsOfExperience.ToString(), searchedPerson.salary.ToString(), searchedPerson.hiredDate.ToShortDateString() };
-            return personData;
-
-
+            if(searchedPerson != null)
+            {
+                string[] personData = {searchedPerson.firstName, searchedPerson.lastName, searchedPerson.address, searchedPerson.email, searchedPerson.dateOfBirth.ToShortDateString(), searchedPerson.jobTitle, searchedPerson.yearsOfExperience.ToString(), searchedPerson.salary.ToString(), searchedPerson.hiredDate.ToShortDateString() };
+                return personData;
+            }
+            else
+            {
+                return null;
+            }
+            
         }
     }
 }
