@@ -387,7 +387,7 @@
             this.Controls.Add(this.lblBugId);
             this.Controls.Add(this.dgvMessages);
             this.Name = "FormBug";
-            this.Text = "FormSelection";
+            this.Text = "Bug Info";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMessages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgBugSmall)).EndInit();
             this.ResumeLayout(false);
