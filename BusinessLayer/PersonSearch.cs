@@ -13,7 +13,7 @@ namespace BusinessLayer
         /// This function return an array with all the creator's informations casting as strings
         /// </summary>
         /// <param name="personId"></param>
-        /// <returns>string [] persondData</returns>
+        /// <returns>string [] persondData = {firstName, lastName, address, email, dateOfBirth, jobTitle, yearsOfExperience, salary, hiredDate};</returns>
         public string[] SearchById(int personId)
         {
 

@@ -65,6 +65,8 @@ namespace BusinessLayer
 
         }
 
+
+
         private List<Bug> SearchBugsById(List<Bug> listTosearch, int searchedId)
         {
             using (BugTrackerContext context = new BugTrackerContext())
@@ -73,6 +75,37 @@ namespace BusinessLayer
             }
         }
 
+
+        /// <summary>
+        /// Overload
+        /// This method is for the Bug Form. 
+        /// It retrieve all the information concerning one bug
+        /// </summary>
+        /// <param name="searchedId"></param>
+        /// <returns>string[] bugData = {name, description, creatorId, priorityId, severityId, creationDate, solved, lastUpdateDate}</returns>
+        public List<string> SearchBugsById(int searchedId)
+        {
+            Bug searchedBug = new Bug();
+            using (BugTrackerContext context = new BugTrackerContext())
+            {
+                searchedBug = context.bugs.Find(searchedId);
+                if(searchedBug != null)
+                {
+                    List<string> bugData = new List<string> {searchedBug.name, searchedBug.description,searchedBug.creatorId.ToString(), searchedBug.priorityId.ToString(),
+                                        searchedBug.severityId.ToString(),searchedBug.creationDate.ToShortDateString(), searchedBug.solved};
+                    if (searchedBug.lastUpdateDate != null)
+                    {
+                        DateTime lastUpdateDateNotNull = (DateTime)searchedBug.lastUpdateDate;
+                        bugData.Add(lastUpdateDateNotNull.ToShortDateString());
+                    }
+                    return bugData;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
         private List<Bug> SearchBugsByCreatorId(List<Bug> listToSearch, int searchedCreatorId)
         {
             using (BugTrackerContext context = new BugTrackerContext())

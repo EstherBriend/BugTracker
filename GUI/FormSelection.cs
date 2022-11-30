@@ -86,10 +86,11 @@ namespace GUI
             reset();
         }
 
-        //Open the FormPerson with the creator informations
+        //Open the FormPerson with the creator informations and the form Bug
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            int creatorId = 0;
+            int creatorId = -1;
+            int bugId = -1;
             if (dgvBugsList.SelectedRows.Count > 1)
             {
                 MessageBox.Show("Please, select only one row at the time", "TOO MANY ROWS SELECTED", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -99,8 +100,11 @@ namespace GUI
                 foreach(DataGridViewRow row in dgvBugsList.SelectedRows)
                 {
                     creatorId = Int32.Parse(row.Cells["CreatorId"].Value.ToString());
+                    bugId = Int32.Parse(row.Cells["id"].Value.ToString());
                 }
                 formPerson creatorInfo = new formPerson(creatorId);
+                FormBug bugInfo = new FormBug(bugId);
+                bugInfo.Show();
                 creatorInfo.Show();
                 btnSelect.Enabled=false;
             }
