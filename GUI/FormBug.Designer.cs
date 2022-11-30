@@ -49,7 +49,7 @@
             this.txtCreationDate = new System.Windows.Forms.TextBox();
             this.txtLastEditDate = new System.Windows.Forms.TextBox();
             this.imgBugSmall = new System.Windows.Forms.PictureBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTxtLogs = new System.Windows.Forms.RichTextBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.radSolvedNo = new System.Windows.Forms.RadioButton();
             this.radSolvedYes = new System.Windows.Forms.RadioButton();
@@ -242,13 +242,14 @@
             this.imgBugSmall.TabIndex = 77;
             this.imgBugSmall.TabStop = false;
             // 
-            // richTextBox1
+            // richTxtLogs
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(487, 287);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(752, 150);
-            this.richTextBox1.TabIndex = 78;
-            this.richTextBox1.Text = "";
+            this.richTxtLogs.Location = new System.Drawing.Point(487, 287);
+            this.richTxtLogs.Name = "richTxtLogs";
+            this.richTxtLogs.ReadOnly = true;
+            this.richTxtLogs.Size = new System.Drawing.Size(752, 150);
+            this.richTxtLogs.TabIndex = 78;
+            this.richTxtLogs.Text = "";
             // 
             // btnEdit
             // 
@@ -365,7 +366,7 @@
             this.Controls.Add(this.radSolvedNo);
             this.Controls.Add(this.radSolvedYes);
             this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.richTxtLogs);
             this.Controls.Add(this.imgBugSmall);
             this.Controls.Add(this.txtLastEditDate);
             this.Controls.Add(this.txtCreationDate);
@@ -417,7 +418,7 @@
         private TextBox txtCreationDate;
         private TextBox txtLastEditDate;
         private PictureBox imgBugSmall;
-        private RichTextBox richTextBox1;
+        private RichTextBox richTxtLogs;
         private Button btnEdit;
         private RadioButton radSolvedNo;
         private RadioButton radSolvedYes;
