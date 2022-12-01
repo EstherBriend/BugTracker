@@ -73,6 +73,7 @@
             this.dgvMessages.RowTemplate.Height = 29;
             this.dgvMessages.Size = new System.Drawing.Size(752, 150);
             this.dgvMessages.TabIndex = 0;
+            this.dgvMessages.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMessages_RowHeaderMouseClick);
             // 
             // lblBugId
             // 

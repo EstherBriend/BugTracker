@@ -24,8 +24,8 @@ namespace DataAccess
         [Browsable(false)] public Person creator { get; set; } //[Browsable(false)] -> make the variable non accessible in the data grid view
         [Browsable(false)] public Priority priority { get; set; }
         [Browsable(false)] public Severity severity { get; set; }
-        public List<Message> messages { get; set; }
-        public List<Logs> logs { get; set; }
+        [Browsable(false)] public List<Message> messages { get; set; }
+        [Browsable(false)] public List<Logs> logs { get; set; }
 
 
     }

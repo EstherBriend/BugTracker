@@ -15,11 +15,13 @@ namespace GUI
     public partial class FormBug : Form
     {
         BugsSearch bugSearchTool = new BusinessLayer.BugsSearch();
+        LogSearch logSearchTool = new LogSearch();
+        MessageSearch messageSearchTool = new MessageSearch();
         PersonSearch personSearchTool = new PersonSearch();
         PrioritySearch prioritySearchTool = new PrioritySearch();
         SeveritySearch severitySearchTool = new SeveritySearch();
-        MessageSearch messageSearchTool = new MessageSearch();
-        LogSearch logSearchTool = new LogSearch();
+
+
         public FormBug(int bugId)
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace GUI
             comboPriority.DataSource = prioritySearchTool.RetrieveAllPriorityName();
             comboSeverity.DataSource = severitySearchTool.RetrieveAllSeverityName();
 
-            // ---------------- Retrieve Bug Info and creator Info -----------------
+            // ---------------- Retrieve Bug Infos and creator Infos -----------------
             List<string> bugInfo = bugSearchTool.SearchBugsById(bugId);
             string[] personInfo = personSearchTool.SearchById(Int32.Parse(bugInfo[2]));
 
@@ -56,9 +58,13 @@ namespace GUI
             {
                 radSolvedYes.Checked = true;
             }
-            // ---------------- Retrieve messages associated with the bug ------------------
+            // ---------------- Retrieve messages associated with the bug --------------
             dgvMessages.DataSource = messageSearchTool.SearchByBugId(bugId);
-
+            //Modify column's header text
+            dgvMessages.Columns[5].HeaderText = "creatorId";
+                //Hide some of the columns
+            dgvMessages.Columns[1].Visible = false;
+            dgvMessages.Columns[3].Visible = false;
             // ---------------- Retrieve log associated with the bug ------------------
             richTxtLogs.Text = logSearchTool.SearchLogByBugId(bugId);
         }
@@ -89,5 +95,25 @@ namespace GUI
 
         }
 
+        // ---------------- Open a read only message form when a row of the grid view is selected ------------------
+        private void dgvMessages_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int messageId = -1;
+            if (dgvMessages.SelectedRows.Count > 1)
+            {
+                MessageBox.Show("Please, select only one row at the time", "TOO MANY ROWS SELECTED", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                foreach (DataGridViewRow row in dgvMessages.SelectedRows)
+                {
+                    messageId = Int32.Parse(row.Cells["id"].Value.ToString());
+                }
+                formMessage messageInfo = new formMessage(messageId);
+                messageInfo.Show();
+   
+            }
+
+        }
     }
 }

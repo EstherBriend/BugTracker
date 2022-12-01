@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +17,8 @@ namespace DataAccess
         public int personId { get; set; }
 
         // Navigation property
-        public Person person{ get; set; }
-        public Bug bug { get; set; }
+        [Browsable(false)] public Person person{ get; set; }
+        [Browsable(false)] public Bug bug { get; set; }
 
     }
 }

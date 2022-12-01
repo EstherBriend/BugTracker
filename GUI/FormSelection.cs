@@ -7,9 +7,10 @@ namespace GUI
     public partial class FormSelection : Form
     {
         BugsSearch bugSearchTool = new BugsSearch();
+        CreatorSearch creatorSearchTool = new CreatorSearch();
         PrioritySearch prioritySearchTool = new PrioritySearch();
         SeveritySearch severitySearchTool = new SeveritySearch();
-        CreatorSearch creatorSearchTool = new CreatorSearch();
+        
         public FormSelection()
         {
             InitializeComponent();
