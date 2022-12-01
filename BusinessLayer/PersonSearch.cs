@@ -14,7 +14,7 @@ namespace BusinessLayer
         /// </summary>
         /// <param name="personId"></param>
         /// <returns>string [] persondData = {firstName, lastName, address, email, dateOfBirth, jobTitle, yearsOfExperience, salary, hiredDate};</returns>
-        public string[] SearchById(int personId)
+        public string[]? SearchById(int personId)
         {
 
             Person searchedPerson = new Person();

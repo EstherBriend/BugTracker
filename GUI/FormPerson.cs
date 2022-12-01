@@ -28,14 +28,7 @@ namespace GUI
             txtYearOfExperience.Text = personInfo[6];
             txtSalary.Text = personInfo[7];
             txtHiredDate.Text = personInfo[8];
-   
-
         }
-
-
-        private void lblYearsExp_Click(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }
