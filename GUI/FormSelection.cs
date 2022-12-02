@@ -129,10 +129,10 @@ namespace GUI
         {
             comboPriority.SelectedIndex = 0;
             comboSeverity.SelectedIndex = 0;
-            txtBugId.Text = "";
+            txtBugId.Clear();
             comboCreator.SelectedIndex = 0;
-            txtDescription.Text = "";
-            txtName.Text = "";
+            txtDescription.Clear();
+            txtName.Clear();
             radSolvedNo.Checked = false;
             radSolvedYes.Checked = false;
             dgvBugsList.DataSource = bugSearchTool.RetrieveAllBugs();
