@@ -21,10 +21,12 @@ namespace GUI
         PrioritySearch prioritySearchTool = new PrioritySearch();
         SeveritySearch severitySearchTool = new SeveritySearch();
 
-
+        private int bugId;
         public FormBug(int bugId)
         {
             InitializeComponent();
+            //Assigning bug id parameter value
+            this.bugId = bugId;
 
             // ---------------- Initialize Combo Box ------------------------------
             comboPriority.DataSource = prioritySearchTool.RetrieveAllPriorityName();
@@ -92,7 +94,9 @@ namespace GUI
 
         private void btnNewMessage_Click(object sender, EventArgs e)
         {
-
+            formMessage addMessage = new formMessage(this.bugId, true, this);
+            addMessage.Show();
+            this.Hide();
         }
 
         // ---------------- Open a read only message form when a row of the grid view is selected ------------------
@@ -109,11 +113,19 @@ namespace GUI
                 {
                     messageId = Int32.Parse(row.Cells["id"].Value.ToString());
                 }
-                formMessage messageInfo = new formMessage(messageId);
+                formMessage messageInfo = new formMessage(messageId, false,this);
                 messageInfo.Show();
    
             }
 
         }
+
+        public void reset()
+        {
+            dgvMessages.DataSource = messageSearchTool.SearchByBugId(bugId);
+            richTxtLogs.Text = logSearchTool.SearchLogByBugId(bugId);
+
+        }
+
     }
 }

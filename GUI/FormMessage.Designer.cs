@@ -28,20 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMessage));
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.txtCreator = new System.Windows.Forms.TextBox();
             this.txtCreationDate = new System.Windows.Forms.TextBox();
-            this.txtTitle = new System.Windows.Forms.TextBox();
             this.txtBugId = new System.Windows.Forms.TextBox();
             this.lblCreationDate = new System.Windows.Forms.Label();
             this.lblCreator = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblBugId = new System.Windows.Forms.Label();
-            this.txtText = new System.Windows.Forms.TextBox();
             this.lblText = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblMessage = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.lblInfoMandatoryFields = new System.Windows.Forms.Label();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.txtText = new System.Windows.Forms.TextBox();
+            this.txtCreator = new System.Windows.Forms.TextBox();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtId
@@ -61,14 +65,6 @@
             this.lblId.TabIndex = 12;
             this.lblId.Text = "Id";
             // 
-            // txtCreator
-            // 
-            this.txtCreator.Location = new System.Drawing.Point(184, 153);
-            this.txtCreator.Name = "txtCreator";
-            this.txtCreator.ReadOnly = true;
-            this.txtCreator.Size = new System.Drawing.Size(310, 27);
-            this.txtCreator.TabIndex = 24;
-            // 
             // txtCreationDate
             // 
             this.txtCreationDate.Location = new System.Drawing.Point(184, 198);
@@ -76,14 +72,6 @@
             this.txtCreationDate.ReadOnly = true;
             this.txtCreationDate.Size = new System.Drawing.Size(310, 27);
             this.txtCreationDate.TabIndex = 23;
-            // 
-            // txtTitle
-            // 
-            this.txtTitle.Location = new System.Drawing.Point(184, 246);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.ReadOnly = true;
-            this.txtTitle.Size = new System.Drawing.Size(310, 27);
-            this.txtTitle.TabIndex = 22;
             // 
             // txtBugId
             // 
@@ -129,15 +117,6 @@
             this.lblBugId.TabIndex = 17;
             this.lblBugId.Text = "Bug Id";
             // 
-            // txtText
-            // 
-            this.txtText.Location = new System.Drawing.Point(184, 287);
-            this.txtText.Multiline = true;
-            this.txtText.Name = "txtText";
-            this.txtText.ReadOnly = true;
-            this.txtText.Size = new System.Drawing.Size(310, 180);
-            this.txtText.TabIndex = 26;
-            // 
             // lblText
             // 
             this.lblText.AutoSize = true;
@@ -151,13 +130,14 @@
             // 
             this.btnAdd.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.Location = new System.Drawing.Point(41, 483);
+            this.btnAdd.Location = new System.Drawing.Point(184, 483);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(453, 50);
+            this.btnAdd.Size = new System.Drawing.Size(310, 50);
             this.btnAdd.TabIndex = 68;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Visible = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblMessage
             // 
@@ -169,18 +149,81 @@
             this.lblMessage.TabIndex = 71;
             this.lblMessage.Text = "Message";
             // 
+            // btnReset
+            // 
+            this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
+            this.btnReset.Location = new System.Drawing.Point(106, 483);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(50, 50);
+            this.btnReset.TabIndex = 73;
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Visible = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // lblInfoMandatoryFields
+            // 
+            this.lblInfoMandatoryFields.AutoSize = true;
+            this.lblInfoMandatoryFields.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.lblInfoMandatoryFields.Location = new System.Drawing.Point(41, 67);
+            this.lblInfoMandatoryFields.Name = "lblInfoMandatoryFields";
+            this.lblInfoMandatoryFields.Size = new System.Drawing.Size(265, 20);
+            this.lblInfoMandatoryFields.TabIndex = 74;
+            this.lblInfoMandatoryFields.Text = "The fields with an asterix are mandatory";
+            this.lblInfoMandatoryFields.Visible = false;
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.Location = new System.Drawing.Point(184, 246);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.ReadOnly = true;
+            this.txtTitle.Size = new System.Drawing.Size(310, 27);
+            this.txtTitle.TabIndex = 75;
+            this.txtTitle.TextChanged += new System.EventHandler(this.txtTitle_TextChanged);
+            // 
+            // txtText
+            // 
+            this.txtText.Location = new System.Drawing.Point(184, 287);
+            this.txtText.Multiline = true;
+            this.txtText.Name = "txtText";
+            this.txtText.ReadOnly = true;
+            this.txtText.Size = new System.Drawing.Size(310, 164);
+            this.txtText.TabIndex = 77;
+            this.txtText.TextChanged += new System.EventHandler(this.txtText_TextChanged);
+            // 
+            // txtCreator
+            // 
+            this.txtCreator.Location = new System.Drawing.Point(184, 153);
+            this.txtCreator.Name = "txtCreator";
+            this.txtCreator.ReadOnly = true;
+            this.txtCreator.Size = new System.Drawing.Size(310, 27);
+            this.txtCreator.TabIndex = 78;
+            this.txtCreator.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtCreator_MouseClick);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
+            this.btnBack.Location = new System.Drawing.Point(41, 483);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(50, 50);
+            this.btnBack.TabIndex = 79;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // formMessage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 545);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.txtCreator);
+            this.Controls.Add(this.txtText);
+            this.Controls.Add(this.txtTitle);
+            this.Controls.Add(this.lblInfoMandatoryFields);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.txtText);
             this.Controls.Add(this.lblText);
-            this.Controls.Add(this.txtCreator);
             this.Controls.Add(this.txtCreationDate);
-            this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.txtBugId);
             this.Controls.Add(this.lblCreationDate);
             this.Controls.Add(this.lblCreator);
@@ -199,17 +242,20 @@
 
         private TextBox txtId;
         private Label lblId;
-        private TextBox txtCreator;
         private TextBox txtCreationDate;
-        private TextBox txtTitle;
         private TextBox txtBugId;
         private Label lblCreationDate;
         private Label lblCreator;
         private Label lblTitle;
         private Label lblBugId;
-        private TextBox txtText;
         private Label lblText;
         private Button btnAdd;
         private Label lblMessage;
+        private Button btnReset;
+        private Label lblInfoMandatoryFields;
+        private TextBox txtTitle;
+        private TextBox txtText;
+        private TextBox txtCreator;
+        private Button btnBack;
     }
 }

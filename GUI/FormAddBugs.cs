@@ -117,6 +117,8 @@ namespace GUI
             comboSeverity.SelectedIndex = -1;
             comboSeverity.BackColor = SystemColors.Window;
             txtDescription.Text = "";
+            lblInfoMandatoryFields.ForeColor = Color.Black;
+            lblInfoMandatoryFields.Font = new Font(lblInfoMandatoryFields.Font, FontStyle.Regular | FontStyle.Regular);
         }
 
         // ------------------------------------ Reverse mandatory fields text box color when fulfill ---------------------------

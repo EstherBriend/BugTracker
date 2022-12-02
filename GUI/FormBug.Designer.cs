@@ -58,7 +58,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAddMessage = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnAddBug = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMessages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgBugSmall)).BeginInit();
             this.SuspendLayout();
@@ -342,23 +342,23 @@
             this.btnAddMessage.UseVisualStyleBackColor = false;
             this.btnAddMessage.Click += new System.EventHandler(this.btnNewMessage_Click);
             // 
-            // btnAdd
+            // btnAddBug
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.Location = new System.Drawing.Point(487, 471);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(144, 50);
-            this.btnAdd.TabIndex = 87;
-            this.btnAdd.Text = "Add bug";
-            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAddBug.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btnAddBug.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAddBug.Location = new System.Drawing.Point(487, 471);
+            this.btnAddBug.Name = "btnAddBug";
+            this.btnAddBug.Size = new System.Drawing.Size(144, 50);
+            this.btnAddBug.TabIndex = 87;
+            this.btnAddBug.Text = "Add bug";
+            this.btnAddBug.UseVisualStyleBackColor = false;
             // 
             // FormBug
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1276, 538);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnAddBug);
             this.Controls.Add(this.btnAddMessage);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -428,6 +428,6 @@
         private Button btnSave;
         private Button btnCancel;
         private Button btnAddMessage;
-        private Button btnAdd;
+        private Button btnAddBug;
     }
 }
