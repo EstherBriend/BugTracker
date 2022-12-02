@@ -189,14 +189,6 @@ namespace GUI
             changeMandatoryFieldsLabelAndBtnAddDependingOnTheFulfill();
         }
 
-
-        
-        private void txtCreator_TextChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
         private void txtCreator_MouseClick(object sender, MouseEventArgs e)
         {
             //---------------- Delete place holder when text box click -------
