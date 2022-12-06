@@ -59,6 +59,9 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAddMessage = new System.Windows.Forms.Button();
             this.btnAddBug = new System.Windows.Forms.Button();
+            this.lblInfoMandatoryField = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnCreatorInfos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMessages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgBugSmall)).BeginInit();
             this.SuspendLayout();
@@ -179,6 +182,7 @@
             this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(244, 27);
             this.txtName.TabIndex = 16;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtDescription
             // 
@@ -318,6 +322,7 @@
             this.btnSave.TabIndex = 84;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -329,6 +334,7 @@
             this.btnCancel.TabIndex = 85;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAddMessage
             // 
@@ -353,11 +359,44 @@
             this.btnAddBug.Text = "Add bug";
             this.btnAddBug.UseVisualStyleBackColor = false;
             // 
+            // lblInfoMandatoryField
+            // 
+            this.lblInfoMandatoryField.AutoSize = true;
+            this.lblInfoMandatoryField.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.lblInfoMandatoryField.Location = new System.Drawing.Point(80, 55);
+            this.lblInfoMandatoryField.Name = "lblInfoMandatoryField";
+            this.lblInfoMandatoryField.Size = new System.Drawing.Size(249, 20);
+            this.lblInfoMandatoryField.TabIndex = 88;
+            this.lblInfoMandatoryField.Text = "The field with an asterix is mandatory";
+            this.lblInfoMandatoryField.Visible = false;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
+            this.btnBack.Location = new System.Drawing.Point(19, 471);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(50, 50);
+            this.btnBack.TabIndex = 89;
+            this.btnBack.UseVisualStyleBackColor = true;
+            // 
+            // btnCreatorInfos
+            // 
+            this.btnCreatorInfos.Image = ((System.Drawing.Image)(resources.GetObject("btnCreatorInfos.Image")));
+            this.btnCreatorInfos.Location = new System.Drawing.Point(83, 171);
+            this.btnCreatorInfos.Name = "btnCreatorInfos";
+            this.btnCreatorInfos.Size = new System.Drawing.Size(40, 36);
+            this.btnCreatorInfos.TabIndex = 90;
+            this.btnCreatorInfos.UseVisualStyleBackColor = true;
+            this.btnCreatorInfos.Click += new System.EventHandler(this.btnCreatorInfos_Click);
+            // 
             // FormBug
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1276, 538);
+            this.Controls.Add(this.btnCreatorInfos);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.lblInfoMandatoryField);
             this.Controls.Add(this.btnAddBug);
             this.Controls.Add(this.btnAddMessage);
             this.Controls.Add(this.btnCancel);
@@ -429,5 +468,8 @@
         private Button btnCancel;
         private Button btnAddMessage;
         private Button btnAddBug;
+        private Label lblInfoMandatoryField;
+        private Button btnBack;
+        private Button btnCreatorInfos;
     }
 }

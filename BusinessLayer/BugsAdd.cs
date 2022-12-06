@@ -25,5 +25,34 @@ namespace BusinessLayer
                 context.SaveChanges();
             }
         }
+
+        public void updateBug(int bugId, string bugName, string bugDesc, int priorityId, int severityId, bool solved)
+        {
+            using(BugTrackerContext context = new BugTrackerContext())
+            {
+                // Retrieve bug to update from the db
+                Bug bugToUpdate = context.bugs.Find(bugId);
+
+
+                // Modify the updated values
+                bugToUpdate.name = bugName;
+                bugToUpdate.description = bugDesc;
+                bugToUpdate.priorityId = priorityId;
+                bugToUpdate.severityId = severityId ;
+                bugToUpdate.lastUpdateDate = DateTime.Now;
+                if (solved)
+                {
+                    bugToUpdate.solved = "true";
+                }
+                else
+                {
+                    bugToUpdate.solved = "false";
+                }
+
+                // Save the modifications in the db
+                context.Update(bugToUpdate);
+                context.SaveChanges();
+            }
+        }
     }
 }
