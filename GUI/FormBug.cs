@@ -207,9 +207,8 @@ namespace GUI
                 txtLastEditDate.Text = DateTime.Now.ToShortDateString();
                 btnEdit.Enabled = true;
                 selectionForm.reset();
+                BackToReadOnly();
             }
-
-            ///////////// ADD BTN LOUP NEAR NAME TO SEE INFO
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
