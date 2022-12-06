@@ -16,10 +16,13 @@ namespace GUI
     {
         public FormSelection selectionForm { get; set; }
 
+        BugsAdd bugsAddTool = new BugsAdd();
+        LogsAdd logsAddTool = new LogsAdd();
+        PersonSearch personSearchTool = new PersonSearch();
         PrioritySearch prioritySearchTool = new PrioritySearch();
         SeveritySearch severitySearchTool = new SeveritySearch();
-        PersonSearch personSearchTool = new PersonSearch();
-        BugsAdd bugsAddTool = new BugsAdd();
+
+
 
         bool btnAddHasBeenClicked = false;
 
@@ -96,8 +99,10 @@ namespace GUI
                         string descToAdd = txtDescription.Text;
                         int priorityIdToAdd = comboPriority.SelectedIndex + 1;
                         int severityIdToAdd = comboSeverity.SelectedIndex + 1;
-                        bugsAddTool.addBugInDb(creatorIdToAdd, nameToAdd, descToAdd, priorityIdToAdd, severityIdToAdd);
+                        int newBugId = bugsAddTool.addBugInDb(creatorIdToAdd, nameToAdd, descToAdd, priorityIdToAdd, severityIdToAdd);
                         MessageBox.Show("New bug added", "NEW BUG", MessageBoxButtons.OK);
+                        logsAddTool.addBugCreationLog(newBugId);
+
 
                     }
                 }

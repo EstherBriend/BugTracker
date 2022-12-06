@@ -9,10 +9,11 @@ namespace BusinessLayer
 {
     public class BugsAdd
     {
-        public void addBugInDb(int creatorId, string bugName, string bugDesc, int priorityId, int severityId)
+        public int addBugInDb(int creatorId, string bugName, string bugDesc, int priorityId, int severityId)
         {
             using(BugTrackerContext context = new BugTrackerContext())
             {
+                // Create new bug
                 Bug bugToAdd = new Bug();
                 bugToAdd.creatorId = creatorId;
                 bugToAdd.name = bugName;
@@ -21,8 +22,14 @@ namespace BusinessLayer
                 bugToAdd.severityId = severityId;
                 bugToAdd.creationDate = DateTime.Now;
                 bugToAdd.solved = "false";
+
+                // Save the new bug in db
                 context.bugs.Add(bugToAdd);
                 context.SaveChanges();
+
+                // Retrieve the new Id
+                int bugId = bugToAdd.id;
+                return bugId;
             }
         }
 

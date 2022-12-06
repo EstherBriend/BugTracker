@@ -18,7 +18,7 @@ namespace BusinessLayer
 
                 foreach (Logs log in logForThisBug)
                 {
-                    result += $"Log {log.id} created on the {log.creationDate.ToShortDateString()} :\n{log.text}\n\n";
+                    result += $"Log created on the {log.creationDate.ToShortDateString()} :\n{log.text}\n\n";
                 }
 
                 return result;

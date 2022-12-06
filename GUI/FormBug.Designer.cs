@@ -60,7 +60,6 @@
             this.btnAddMessage = new System.Windows.Forms.Button();
             this.btnAddBug = new System.Windows.Forms.Button();
             this.lblInfoMandatoryField = new System.Windows.Forms.Label();
-            this.btnBack = new System.Windows.Forms.Button();
             this.btnCreatorInfos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMessages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgBugSmall)).BeginInit();
@@ -358,6 +357,7 @@
             this.btnAddBug.TabIndex = 87;
             this.btnAddBug.Text = "Add bug";
             this.btnAddBug.UseVisualStyleBackColor = false;
+            this.btnAddBug.Click += new System.EventHandler(this.btnAddBug_Click);
             // 
             // lblInfoMandatoryField
             // 
@@ -369,15 +369,6 @@
             this.lblInfoMandatoryField.TabIndex = 88;
             this.lblInfoMandatoryField.Text = "The field with an asterix is mandatory";
             this.lblInfoMandatoryField.Visible = false;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
-            this.btnBack.Location = new System.Drawing.Point(19, 471);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(50, 50);
-            this.btnBack.TabIndex = 89;
-            this.btnBack.UseVisualStyleBackColor = true;
             // 
             // btnCreatorInfos
             // 
@@ -395,7 +386,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1276, 538);
             this.Controls.Add(this.btnCreatorInfos);
-            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblInfoMandatoryField);
             this.Controls.Add(this.btnAddBug);
             this.Controls.Add(this.btnAddMessage);
@@ -469,7 +459,6 @@
         private Button btnAddMessage;
         private Button btnAddBug;
         private Label lblInfoMandatoryField;
-        private Button btnBack;
         private Button btnCreatorInfos;
     }
 }
