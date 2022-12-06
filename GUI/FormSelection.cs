@@ -103,11 +103,10 @@ namespace GUI
                     creatorId = Int32.Parse(row.Cells["CreatorId"].Value.ToString());
                     bugId = Int32.Parse(row.Cells["id"].Value.ToString());
                 }
-                formPerson creatorInfo = new formPerson(creatorId);
-                FormBug bugInfo = new FormBug(bugId);
+
+                FormBug bugInfo = new FormBug(bugId, this);
                 bugInfo.Show();
-                creatorInfo.Show();
-                btnSelect.Enabled=false;
+
             }
         }
 

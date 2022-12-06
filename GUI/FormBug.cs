@@ -9,32 +9,41 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
 using DataAccess;
+using Microsoft.IdentityModel.Tokens;
 
 namespace GUI
 {
     public partial class FormBug : Form
     {
-        BugsSearch bugSearchTool = new BusinessLayer.BugsSearch();
+        BugsAdd bugAddTool = new BugsAdd();
+        BugsSearch bugSearchTool = new BugsSearch();
         LogSearch logSearchTool = new LogSearch();
         MessageSearch messageSearchTool = new MessageSearch();
         PersonSearch personSearchTool = new PersonSearch();
         PrioritySearch prioritySearchTool = new PrioritySearch();
         SeveritySearch severitySearchTool = new SeveritySearch();
 
+        List<string> bugInfo;
+        string[] personInfo;
+        DateTime todayDate = DateTime.Now;
         private int bugId;
-        public FormBug(int bugId)
+
+        FormSelection selectionForm; 
+
+        public FormBug(int bugId, FormSelection form)
         {
             InitializeComponent();
-            //Assigning bug id parameter value
+            //Assigning bug id parameter and form selection value
             this.bugId = bugId;
+            this.selectionForm = form;
 
             // ---------------- Initialize Combo Box ------------------------------
             comboPriority.DataSource = prioritySearchTool.RetrieveAllPriorityName();
             comboSeverity.DataSource = severitySearchTool.RetrieveAllSeverityName();
 
             // ---------------- Retrieve Bug Infos and creator Infos -----------------
-            List<string> bugInfo = bugSearchTool.SearchBugsById(bugId);
-            string[] personInfo = personSearchTool.SearchById(Int32.Parse(bugInfo[2]));
+            bugInfo = bugSearchTool.SearchBugsById(bugId);
+            personInfo = personSearchTool.SearchById(Int32.Parse(bugInfo[2]));
 
             // ---------------- Fullfill text Box and Combo box --------------------
             txtBugId.Text = bugId.ToString();
@@ -64,11 +73,17 @@ namespace GUI
             dgvMessages.DataSource = messageSearchTool.SearchByBugId(bugId);
             //Modify column's header text
             dgvMessages.Columns[5].HeaderText = "creatorId";
+
                 //Hide some of the columns
             dgvMessages.Columns[1].Visible = false;
             dgvMessages.Columns[3].Visible = false;
+
             // ---------------- Retrieve log associated with the bug ------------------
             richTxtLogs.Text = logSearchTool.SearchLogByBugId(bugId);
+
+            // ---------------- Make save and cancel button unavailable before Edit ------------------
+            btnSave.Enabled = false;
+            btnCancel.Enabled = false;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -79,6 +94,12 @@ namespace GUI
             comboSeverity.Enabled = true;
             radSolvedYes.Enabled = true;
             radSolvedNo.Enabled = true;
+            btnCancel.Enabled = true;
+            btnSave.Enabled = true;
+            lblName.Text = "Name *";
+            lblInfoMandatoryField.Visible = true;
+            btnEdit.Enabled = false;
+            txtName.BackColor = SystemColors.Window;
         }
 
         private void BackToReadOnly()
@@ -89,6 +110,11 @@ namespace GUI
             comboSeverity.Enabled = false;
             radSolvedYes.Enabled = false;
             radSolvedNo.Enabled = false;
+            btnSave.Enabled = false;
+            btnCancel.Enabled = false;
+            btnEdit.Enabled = true;
+            txtName.BackColor = SystemColors.Menu;
+            lblName.Text = "Name";
 
         }
 
@@ -124,8 +150,80 @@ namespace GUI
         {
             dgvMessages.DataSource = messageSearchTool.SearchByBugId(bugId);
             richTxtLogs.Text = logSearchTool.SearchLogByBugId(bugId);
+            BackToReadOnly();
 
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            //-------- Back to the original value --------------------
+            txtName.Text = bugInfo[0];
+            txtDescription.Text = bugInfo[1];
+            comboPriority.SelectedIndex = Int32.Parse(bugInfo[3]) - 1;
+            comboSeverity.SelectedIndex = Int32.Parse(bugInfo[4]) - 1;
+            if (bugInfo[6] == "false")
+            {
+                radSolvedNo.Checked = true;
+            }
+            else
+            {
+                radSolvedYes.Checked = true;
+            }
+            if (bugInfo.Count == 8)
+            {
+                txtLastEditDate.Text = bugInfo[7];
+            }
+            else
+            {
+                txtLastEditDate.Text = "No edit made since creation";
+            }
+
+            //---------- Back to read only ----------------------------
+            BackToReadOnly();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            //----------- Verify mandatory fiels is not empty ---------------------
+            if (txtName.Text.IsNullOrEmpty())
+            {
+                txtName.BackColor = Color.LightPink;
+                btnSave.Enabled = false;
+                lblInfoMandatoryField.ForeColor = Color.Red;
+                lblInfoMandatoryField.Font = new Font(lblInfoMandatoryField.Font, FontStyle.Bold | FontStyle.Italic);
+            }
+            // ------------------------------------ Send the form informations to the Business layer ------------------------------------
+            else
+            {
+                //----------- Verify solved status ---------------------
+                bool solved = false;
+                if (radSolvedYes.Checked)
+                {
+                    solved = true;
+                }
+
+                bugAddTool.updateBug(Int32.Parse(txtBugId.Text), txtName.Text, txtDescription.Text, comboPriority.SelectedIndex + 1, comboSeverity.SelectedIndex + 1, solved);
+                MessageBox.Show("bug updated!", "BUG UPDATED", MessageBoxButtons.OK);
+                txtLastEditDate.Text = DateTime.Now.ToShortDateString();
+                btnEdit.Enabled = true;
+                selectionForm.reset();
+            }
+
+            ///////////// ADD BTN LOUP NEAR NAME TO SEE INFO
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            txtName.BackColor = SystemColors.Window;
+            btnSave.Enabled = true;
+            lblInfoMandatoryField.ForeColor = Color.Black;
+            lblInfoMandatoryField.Font = new Font(lblInfoMandatoryField.Font, FontStyle.Italic);
+        }
+
+        private void btnCreatorInfos_Click(object sender, EventArgs e)
+        {
+            formPerson creatorInfo = new formPerson(Int32.Parse(bugInfo[2]));
+            creatorInfo.Show();
+        }
     }
 }
