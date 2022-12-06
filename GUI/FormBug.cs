@@ -17,6 +17,7 @@ namespace GUI
     {
         BugsAdd bugAddTool = new BugsAdd();
         BugsSearch bugSearchTool = new BugsSearch();
+        LogsAdd logsAddTool = new LogsAdd();
         LogSearch logSearchTool = new LogSearch();
         MessageSearch messageSearchTool = new MessageSearch();
         PersonSearch personSearchTool = new PersonSearch();
@@ -201,11 +202,16 @@ namespace GUI
                 {
                     solved = true;
                 }
-
+                // Add new bug
                 bugAddTool.updateBug(Int32.Parse(txtBugId.Text), txtName.Text, txtDescription.Text, comboPriority.SelectedIndex + 1, comboSeverity.SelectedIndex + 1, solved);
                 MessageBox.Show("bug updated!", "BUG UPDATED", MessageBoxButtons.OK);
+                
+                //Add new log
+                logsAddTool.addBugUpdateLog(bugId);
+                reset();
+
+                // Return to read only and reset selection form
                 txtLastEditDate.Text = DateTime.Now.ToShortDateString();
-                btnEdit.Enabled = true;
                 selectionForm.reset();
                 BackToReadOnly();
             }
@@ -223,6 +229,11 @@ namespace GUI
         {
             formPerson creatorInfo = new formPerson(Int32.Parse(bugInfo[2]));
             creatorInfo.Show();
+        }
+
+        private void btnAddBug_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
