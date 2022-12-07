@@ -39,7 +39,16 @@ namespace GUI
 
             if (!txtBugId.Text.IsNullOrEmpty())
             {
-                searchedId = Int32.Parse(txtBugId.Text);
+                try
+                {
+                    searchedId = Int32.Parse(txtBugId.Text);
+                }
+                catch
+                {
+                    searchedId = -1;
+                    MessageBox.Show("Sorry, Bug Id can only be numbers!\nThis element has been taken out of your search criterias.", "ERROR BUG ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
             if(comboCreator.SelectedIndex != 0)
             {
@@ -64,11 +73,11 @@ namespace GUI
             }
             if (!txtName.Text.IsNullOrEmpty())
             {
-                searchedName = txtName.Text;
+                searchedName = txtName.Text.ToLower();
             }
             if (!txtDescription.Text.IsNullOrEmpty())
             {
-                searchedDesc = txtDescription.Text;
+                searchedDesc = txtDescription.Text.ToLower();
             }
             if (radSolvedYes.Checked)
             {
@@ -137,6 +146,8 @@ namespace GUI
             dgvBugsList.DataSource = bugSearchTool.RetrieveAllBugs();
             btnSelect.Enabled = false;
             comboCreator.DataSource = creatorSearchTool.RetrieveCreatorIdAndName();
+            timeModificationDate.Value = DateTime.Now;
+            timeCreationDate.Value = DateTime.Now;
         }
 
     }
