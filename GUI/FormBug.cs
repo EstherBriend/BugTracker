@@ -28,6 +28,8 @@ namespace GUI
         string[] personInfo;
         DateTime todayDate = DateTime.Now;
         private int bugId;
+        string solvedImageSrc = "C:\\Users\\esbri\\Documents\\01 - AEC\\03 - Troisieme semestre\\05 - Multi-tier applications\\03 - Devoirs_Examens\\Final_lab\\2130546_FinalProject\\Images\\checkMarckSmall.png";
+        string unsolvedImageSrc = "C:\\Users\\esbri\\Documents\\01 - AEC\\03 - Troisieme semestre\\05 - Multi-tier applications\\03 - Devoirs_Examens\\Final_lab\\2130546_FinalProject\\Images\\crossSmall.png";
 
         FormSelection selectionForm; 
 
@@ -69,6 +71,7 @@ namespace GUI
             else
             {
                 radSolvedYes.Checked = true;
+                imgValidation.Image = Image.FromFile(solvedImageSrc);
             }
             // ---------------- Retrieve messages associated with the bug --------------
             dgvMessages.DataSource = messageSearchTool.SearchByBugId(bugId);
@@ -116,6 +119,14 @@ namespace GUI
             btnEdit.Enabled = true;
             txtName.BackColor = SystemColors.Menu;
             lblName.Text = "Name";
+            if (radSolvedYes.Checked)
+            {
+                imgValidation.Image = Image.FromFile(solvedImageSrc);
+            }
+            else
+            {
+                imgValidation.Image = Image.FromFile(unsolvedImageSrc);
+            }
 
         }
 
