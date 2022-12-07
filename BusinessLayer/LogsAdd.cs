@@ -42,7 +42,6 @@ namespace BusinessLayer
             }
 
         }
-
         public void addNewMessageLog(int bugId)
         {
             using(BugTrackerContext context = new BugTrackerContext())

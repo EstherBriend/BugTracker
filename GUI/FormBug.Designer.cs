@@ -48,7 +48,7 @@
             this.lblLogsList = new System.Windows.Forms.Label();
             this.txtCreationDate = new System.Windows.Forms.TextBox();
             this.txtLastEditDate = new System.Windows.Forms.TextBox();
-            this.imgBugSmall = new System.Windows.Forms.PictureBox();
+            this.imgValidation = new System.Windows.Forms.PictureBox();
             this.richTxtLogs = new System.Windows.Forms.RichTextBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.radSolvedNo = new System.Windows.Forms.RadioButton();
@@ -62,7 +62,7 @@
             this.lblInfoMandatoryField = new System.Windows.Forms.Label();
             this.btnCreatorInfos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMessages)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgBugSmall)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgValidation)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvMessages
@@ -237,14 +237,14 @@
             this.txtLastEditDate.Size = new System.Drawing.Size(244, 27);
             this.txtLastEditDate.TabIndex = 74;
             // 
-            // imgBugSmall
+            // imgValidation
             // 
-            this.imgBugSmall.Image = ((System.Drawing.Image)(resources.GetObject("imgBugSmall.Image")));
-            this.imgBugSmall.Location = new System.Drawing.Point(19, 12);
-            this.imgBugSmall.Name = "imgBugSmall";
-            this.imgBugSmall.Size = new System.Drawing.Size(55, 62);
-            this.imgBugSmall.TabIndex = 77;
-            this.imgBugSmall.TabStop = false;
+            this.imgValidation.Image = ((System.Drawing.Image)(resources.GetObject("imgValidation.Image")));
+            this.imgValidation.Location = new System.Drawing.Point(19, 12);
+            this.imgValidation.Name = "imgValidation";
+            this.imgValidation.Size = new System.Drawing.Size(61, 74);
+            this.imgValidation.TabIndex = 77;
+            this.imgValidation.TabStop = false;
             // 
             // richTxtLogs
             // 
@@ -397,7 +397,7 @@
             this.Controls.Add(this.radSolvedYes);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.richTxtLogs);
-            this.Controls.Add(this.imgBugSmall);
+            this.Controls.Add(this.imgValidation);
             this.Controls.Add(this.txtLastEditDate);
             this.Controls.Add(this.txtCreationDate);
             this.Controls.Add(this.lblLogsList);
@@ -420,7 +420,7 @@
             this.Name = "FormBug";
             this.Text = "Bug Info";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMessages)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgBugSmall)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgValidation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -447,7 +447,7 @@
         private Label lblLogsList;
         private TextBox txtCreationDate;
         private TextBox txtLastEditDate;
-        private PictureBox imgBugSmall;
+        private PictureBox imgValidation;
         private RichTextBox richTxtLogs;
         private Button btnEdit;
         private RadioButton radSolvedNo;
