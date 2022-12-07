@@ -42,5 +42,21 @@ namespace BusinessLayer
             }
 
         }
+
+        public void addNewMessageLog(int bugId)
+        {
+            using(BugTrackerContext context = new BugTrackerContext())
+            {
+                //Create new log
+                Logs newMessageLog = new Logs();
+                newMessageLog.creationDate = DateTime.Now;
+                newMessageLog.text = "New message";
+                newMessageLog.bugId = bugId;
+
+                // Save the modification in the db
+                context.logs.Add(newMessageLog);
+                context.SaveChanges();
+            }
+        }
     }
 }

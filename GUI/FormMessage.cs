@@ -15,6 +15,7 @@ namespace GUI
 {
     public partial class formMessage : Form
     {
+        LogsAdd logsAddTool = new LogsAdd();
         MessageSearch messageSearchTool = new MessageSearch();
         MessageAdd messageAddTool = new MessageAdd();
         PersonSearch personSearchTool = new PersonSearch();
@@ -148,6 +149,8 @@ namespace GUI
                         string txtToAdd = txtText.Text;
                         messageAddTool.addMessageInDb(bugIdToAdd,todayDate,creatorIdToAdd,titleToAdd, txtToAdd);
                         MessageBox.Show("New message added", "NEW MESSAGE", MessageBoxButtons.OK);
+                        logsAddTool.addNewMessageLog(bugIdToAdd);
+
 
                     }
                 }
