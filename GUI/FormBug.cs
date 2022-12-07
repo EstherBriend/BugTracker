@@ -162,6 +162,7 @@ namespace GUI
         {
             dgvMessages.DataSource = messageSearchTool.SearchByBugId(bugId);
             richTxtLogs.Text = logSearchTool.SearchLogByBugId(bugId);
+            bugInfo = bugSearchTool.SearchBugsById(bugId);
             BackToReadOnly();
 
         }
@@ -221,10 +222,13 @@ namespace GUI
                 logsAddTool.addBugUpdateLog(bugId);
                 reset();
 
-                // Return to read only and reset selection form
+                // Change last edit date and reset form 
                 txtLastEditDate.Text = DateTime.Now.ToShortDateString();
+                reset();
+
+                //reset selection form
                 selectionForm.reset();
-                BackToReadOnly();
+                
             }
         }
 
