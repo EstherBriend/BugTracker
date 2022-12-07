@@ -64,6 +64,8 @@ namespace GUI
                 btnAdd.Visible = true;
                 btnReset.Visible = true;
 
+
+
                 // ---------------- Make text box editable ---------------
                 txtCreator.ReadOnly = false;
                 txtTitle.ReadOnly = false;
@@ -80,6 +82,8 @@ namespace GUI
 
                 //---------------- Place holder to ask only for the id in the Creator text box --
                 txtCreator.Text = creatorTxtBoxPlaceHolder;
+
+
             }
 
         }
@@ -165,7 +169,7 @@ namespace GUI
 
         private void changeMandatoryFieldsLabelAndBtnAddDependingOnTheFulfill()
         {
-            if ((txtCreator.Text.IsNullOrEmpty() || txtTitle.Text.IsNullOrEmpty() || txtText.Text.IsNullOrEmpty()) && btnAddHasBeenClicked)
+            if ((txtCreator.Text.IsNullOrEmpty() || txtTitle.Text.IsNullOrEmpty() || txtText.Text.IsNullOrEmpty() || txtCreator.Text == creatorTxtBoxPlaceHolder) && btnAddHasBeenClicked)
             {
                 lblInfoMandatoryFields.ForeColor = Color.Red;
                 lblInfoMandatoryFields.Font = new Font(lblInfoMandatoryFields.Font, FontStyle.Bold | FontStyle.Italic);
@@ -202,13 +206,27 @@ namespace GUI
 
             txtCreator.BackColor = SystemColors.Window;
             changeMandatoryFieldsLabelAndBtnAddDependingOnTheFulfill();
+
         }
+
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             bugForm.reset();
             bugForm.Show();
             this.Close();
+        }
+
+        private void txtCreator_TextChanged(object sender, EventArgs e)
+        {            
+            if (txtCreator.Text.IsNullOrEmpty())
+            {
+                txtCreator.Text = creatorTxtBoxPlaceHolder;
+            }
+
+            txtCreator.BackColor = SystemColors.Window;
+            changeMandatoryFieldsLabelAndBtnAddDependingOnTheFulfill();
+
         }
     }
 }
