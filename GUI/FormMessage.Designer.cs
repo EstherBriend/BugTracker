@@ -198,6 +198,7 @@
             this.txtCreator.Size = new System.Drawing.Size(310, 27);
             this.txtCreator.TabIndex = 78;
             this.txtCreator.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtCreator_MouseClick);
+            this.txtCreator.TextChanged += new System.EventHandler(this.txtCreator_TextChanged);
             // 
             // btnBack
             // 
