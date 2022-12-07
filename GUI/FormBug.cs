@@ -103,6 +103,7 @@ namespace GUI
             lblName.Text = "Name *";
             lblInfoMandatoryField.Visible = true;
             btnEdit.Enabled = false;
+            btnAddBug.Enabled = false;
             txtName.BackColor = SystemColors.Window;
         }
 
@@ -117,6 +118,7 @@ namespace GUI
             btnSave.Enabled = false;
             btnCancel.Enabled = false;
             btnEdit.Enabled = true;
+            btnAddBug.Enabled = true;
             txtName.BackColor = SystemColors.Menu;
             lblName.Text = "Name";
             if (radSolvedYes.Checked)
