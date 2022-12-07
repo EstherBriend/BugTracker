@@ -233,7 +233,10 @@ namespace GUI
 
         private void btnAddBug_Click(object sender, EventArgs e)
         {
-
+            FormAddBugs newFormAddBugs = new FormAddBugs();
+            newFormAddBugs.selectionForm = this.selectionForm;
+            newFormAddBugs.Show();
+            this.Close();
         }
     }
 }
